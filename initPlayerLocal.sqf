@@ -47,9 +47,10 @@ fnc_missionText = {
 };
 
 // Turn on menu music
-0 fadeMusic 0;
-playMusic "LeadTrack01_F_Jets";
-5 fadeMusic 1;
+// Trun off music
+//0 fadeMusic 0;
+//playMusic "LeadTrack01_F_Jets";
+//5 fadeMusic 1;
 
 player createDiarySubject ["dro", "Dynamic Recon Ops"];
 player createDiaryRecord ["dro", ["Dynamic Recon Ops", "
@@ -348,6 +349,12 @@ while {
 	if (player == topUnit) then {
 		_allHCs = entities "HeadlessClient_F";
 		_allHPs = allPlayers - _allHCs;
+
+		// auto ready for not admin
+		if (player != u1) then {
+			player setVariable ['startReady', true, true];
+		};
+		
 		if (({(_x getVariable ["startReady", false])} count _allHPs) >= count _allHPs) then {
 			missionNameSpace setVariable ['lobbyComplete', 1, true];	
 		};	
