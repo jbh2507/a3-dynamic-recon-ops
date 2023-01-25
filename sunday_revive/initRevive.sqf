@@ -1,20 +1,23 @@
 //handle if someone has revive enabled and also enables revive via the main menu
-if ((configfile >> "CfgPatches" >> "ace_medical") call BIS_fnc_getCfgIsClass) then {	
-	if (!isNil "ace_medical_statemachine_cardiacArrestTime") then {
-		if (ace_medical_statemachine_cardiacArrestTime > 0) then {
-			reviveDisabled = 3;
-			publicVariable "reviveDisabled";
-		};
-	};
-};
-if (reviveDisabled == 3) exitWith {
-	diag_log format ["DRO: ACE Medical enabled, Sunday Revive forcibly disabled."];
-};
+//if ((configfile >> "CfgPatches" >> "ace_medical") call BIS_fnc_getCfgIsClass) then {	
+//	if (!isNil "ace_medical_statemachine_cardiacArrestTime") then {
+//		if (ace_medical_statemachine_cardiacArrestTime > 0) then {
+//			reviveDisabled = 3;
+//			publicVariable "reviveDisabled";
+//		};
+//	};
+//};
+//if (reviveDisabled == 3) exitWith {
+//	diag_log format ["DRO: ACE Medical enabled, Sunday Revive forcibly disabled."];
+//};
+
+// not using ace medical
+
 
 #include "reviveFunctions.sqf";
 
 reviveUnits = units (_this select 0);
-reviveTime = 10;
+reviveTime = 99999;
 bleedTime = if (isNil "reviveDisabled") then {
 	300
 } else {

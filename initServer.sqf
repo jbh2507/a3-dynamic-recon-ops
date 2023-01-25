@@ -24,4 +24,6 @@ missionNameSpace setVariable ["vn_allowed_radio_backpacks", [], true];
 _vn_allowed_radio_vehicles = (missionConfigFile >> "vn_artillery_settings" >> "radio_backpacks") call BIS_fnc_getCfgDataArray;
 missionNameSpace setVariable ["vn_allowed_radio_vehicles", [], true];
 
+// Initialize group management for server
+["Initialize"] call BIS_fnc_dynamicGroups; 
 [] execVM "start.sqf";
