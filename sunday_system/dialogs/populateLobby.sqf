@@ -114,10 +114,7 @@ if (player getVariable ['startReady', false]) then {
 	
 } forEach playerGroup;
 
-lbAdd [6009, "Random"];
 lbAdd [6009, "Ground"];
-lbAdd [6009, "Air - HALO"];
-lbAdd [6009, "Air - Helicopter"];
 if (player == _dialogPlayer) then {
 	lbSetCurSel [6009, insertType];
 };
