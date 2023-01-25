@@ -18,7 +18,7 @@ class EditorData
 	};
 };
 binarizationWanted=0;
-sourceName="DRO_for_NOYA";
+sourceName="DRO_for_NOYA 0.1";
 addons[]=
 {
 	"A3_Modules_F",
@@ -48,7 +48,7 @@ class AddonsMetaData
 randomSeed=13200576;
 class ScenarioData
 {
-	author="karskin";
+	author="NOYA";
 	overViewPicture="images\recon_image.jpg";
 	overViewPictureLocked="images\recon_image.jpg";
 	loadScreen="images\recon_image.jpg";
@@ -59,7 +59,7 @@ class ScenarioData
 	{
 		gameType="Coop";
 		minPlayers=1;
-		maxPlayers=16;
+		maxPlayers=30;
 	};
 };
 class CustomAttributes
