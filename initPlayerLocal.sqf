@@ -340,6 +340,11 @@ while {
 		((findDisplay 626262) displayCtrl 6006) ctrlSetText format ["Insertion position: %1", (mapGridPosition (getMarkerPos 'campMkr'))];			
 	};
 	{
+		// auto ready for not admin
+		if (_x != u1) then {
+			_x setVariable ['startReady', true, true];
+		};
+
 		if (_x getVariable ["startReady", false] OR !isPlayer _x) then {
 			((findDisplay 626262) displayCtrl (_x getVariable "unitNameTagIDC")) ctrlSetTextColor [0.05, 1, 0.5, 1];
 		} else {
@@ -349,11 +354,6 @@ while {
 	if (player == topUnit) then {
 		_allHCs = entities "HeadlessClient_F";
 		_allHPs = allPlayers - _allHCs;
-
-		// auto ready for not admin
-		if (player != u1) then {
-			player setVariable ['startReady', true, true];
-		};
 		
 		if (({(_x getVariable ["startReady", false])} count _allHPs) >= count _allHPs) then {
 			missionNameSpace setVariable ['lobbyComplete', 1, true];	
