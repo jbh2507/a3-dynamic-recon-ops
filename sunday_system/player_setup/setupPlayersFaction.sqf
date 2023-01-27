@@ -31,9 +31,12 @@ diag_log format ["Zeus = %1", _zeus];
 } forEach (units (grpNetId call BIS_fnc_groupFromNetId));
 diag_log (units (grpNetId call BIS_fnc_groupFromNetId));
 
-if (insertType == 0) then {
+/*if (insertType == 0) then {
 	insertType = [1,3] call BIS_fnc_randomInt;		
-};
+};*/
+// insert ground only
+insertType = 1;
+
 
 _customStart = false;
 _randomStartingLocation = [];
