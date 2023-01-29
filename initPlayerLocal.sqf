@@ -163,6 +163,9 @@ closeDialog 1;
 */
 sleep 3;
 
+_pos = [playerUnitStandbyPosition, 0, 12, 1] call BIS_fnc_findSafePos;
+player setPos _pos;
+
 if (player == topUnit) then {	
 	waitUntil {!dialog};
 	// Faction dialog

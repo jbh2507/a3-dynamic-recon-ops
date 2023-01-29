@@ -18,6 +18,7 @@ missionNameSpace setVariable ["objectivesSpawned", 0, true];
 missionNameSpace setVariable ["aoLocationName", "", true];
 missionNameSpace setVariable ["aoLocation", "", true];
 missionNameSpace setVariable ["lobbyComplete", 0, true];
+missionNameSpace setVariable ["playerUnitStandbyPosition", ([[],0,-1] call BIS_fnc_findSafePos), true];
 
 _vn_allowed_radio_backpacks = (missionConfigFile >> "vn_artillery_settings" >> "radio_backpacks") call BIS_fnc_getCfgDataArray;
 missionNameSpace setVariable ["vn_allowed_radio_backpacks", [], true];
