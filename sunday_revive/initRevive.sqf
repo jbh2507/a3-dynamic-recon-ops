@@ -17,7 +17,7 @@
 #include "reviveFunctions.sqf";
 
 reviveUnits = units (_this select 0);
-reviveTime = 99999;
+reviveTime = 10;
 bleedTime = if (isNil "reviveDisabled") then {
 	300
 } else {
