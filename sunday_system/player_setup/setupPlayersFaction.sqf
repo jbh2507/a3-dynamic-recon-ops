@@ -270,7 +270,6 @@ if (_forceSeaStart == 1) then {
 }; // end of if (_forceSeaStart == 1)
 
 _groundStyleSelect = selectRandom _groundStylesAvailable;
-systemChat format ["DRO: Ground insert style will be %1", _groundStyleSelect];
 switch (_groundStyleSelect) do {
 	case "FOB": {
 		// Spawn FOB
