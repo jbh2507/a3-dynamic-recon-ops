@@ -284,7 +284,7 @@ cutText ["", "BLACK IN", 1];
 diag_log format ["DRO: Player %1 map initialized", player];
 
 // add select insert position event for admin
-if (player == u1) then {
+if (player == topUnit) then {
     player switchCamera "INTERNAL";
     [
     	"mapStartSelect",
@@ -325,7 +325,7 @@ while {
 	};
 	{
 		// auto ready for not admin
-		if (_x != u1) then {
+		if (_x != topUnit) then {
 			_x setVariable ['startReady', true, true];
 		};
 
