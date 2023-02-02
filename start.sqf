@@ -905,16 +905,18 @@ _objGroupingHandle = [] execVM "sunday_system\objectives\objGrouping.sqf";
 waitUntil {scriptDone _objGroupingHandle};
 
 // Based on task data, assign tasks to players or assign recon tasks instead
+// + ignore recon tacks, recon tasks is suck (determined by each task obj[6] .sqf file example = cache.sqf _reconChance field init)
 {
-	diag_log format ["DRO: %1 recon chance %2 checked against %3", (_x select 0), (_x select 6), baseReconChance]; 
-	if ((_x select 6) < baseReconChance) then {
+	diag_log format ["DRO: %1 recon chance %2 checked against %3", (_x select 0), (_x select 6), baseReconChance];
+	// before ignore 'if ((_x select 6) < baseReconChance) then {'
+	if (true) then {
 		// Create task from task data
 		diag_log "DRO: Creating regular task";
-		[_x, true, true] call sun_assignTask;			
-	} else {		
+		[_x, true, true] call sun_assignTask;
+	} else {
 		// Create recon addition
 		diag_log "DRO: Creating a recon task";
-		[_x, true, true] execVM "sunday_system\objectives\reconTask.sqf";		
+		[_x, true, true] execVM "sunday_system\objectives\reconTask.sqf";
 	};
 } forEach objData;
 
