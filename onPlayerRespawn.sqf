@@ -48,7 +48,9 @@ if (!isNil "staminaDisabled") then {
 };
 
 //fix for sometimes strange respawn circumstances
-[player] call ACE_medical_treatment_fnc_fullHealLocal;
+if ((configfile >> "CfgPatches" >> "ace_medical") call BIS_fnc_getCfgIsClass) then {	
+	[player] call ACE_medical_treatment_fnc_fullHealLocal;
+};
 player setdamage 0;
 player allowDamage true;
 player setCaptive false;
