@@ -338,6 +338,9 @@ class sundayDialog {
 					idc = 2025;					
 					y = "16 * pixelGridNoUIScale * pixelH";	
 				};
+
+				// DRO 난이도설정 비활성화
+				/*
 				class AISkillSwitchButton: RscControlsGroupNoScrollbars {
 					idc = 2030;
 					y = "17 * pixelGridNoUIScale * pixelH";	
@@ -364,6 +367,7 @@ class sundayDialog {
 						};
 					};		
 				};
+				*/
 				
 				class droAIBG: sundayText {
 					idc = 2042;			

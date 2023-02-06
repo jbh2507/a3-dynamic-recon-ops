@@ -55,7 +55,6 @@ _index = lbAdd [2106, "2"];
 _index = lbAdd [2106, "3"];
 
 ["MAIN", 2020, false] call sun_switchButton;
-["MAIN", 2030, false] call sun_switchButton;
 ["MAIN", 2050, false] call sun_switchButton;
 ["MAIN", 2060, false] call sun_switchButton;
 ["MAIN", 2070, false] call sun_switchButton;
@@ -277,6 +276,9 @@ _tooltip = str composeText [
 	toString [13, 10]
 ];
 ((findDisplay 52525) displayCtrl 2094) ctrlSetTooltip _tooltip;
+
+// DRO 난이도설정 비활성화
+/*
 _tooltip = str composeText [
 	"AI Skill",
 	toString [13, 10],
@@ -288,6 +290,7 @@ _tooltip = str composeText [
 	toString [13, 10]
 ];
 ((findDisplay 52525) displayCtrl 2034) ctrlSetTooltip _tooltip;
+*/
 
 
 
