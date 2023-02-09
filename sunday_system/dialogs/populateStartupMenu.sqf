@@ -81,7 +81,7 @@ lbSetCurSel [2301, day];
 //lbSetCurSel [2103, timeOfDay];
 
 // Slider items
-sliderSetRange [2041, 5, 17];
+sliderSetRange [2041, 5, 30];
 sliderSetPosition [2041, aiMultiplier*10];
 ((findDisplay 52525) displayCtrl 2041) ctrlSetText format ["Enemy force size multiplier: x%1", profileNamespace getVariable ['DRO_aiMultiplier', 1]];
 

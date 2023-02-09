@@ -304,7 +304,7 @@ class Mission
 					{
 						init="this disableAI ""MOVE""; " \n "this setCaptive true; " \n "this setPos ([[],0,-1] call BIS_fnc_findSafePos);";
 						name="u1";
-						description="Player 1";
+						description="미션 메이커";
 						isPlayer=1;
 					};
 					id=68;
@@ -353,7 +353,7 @@ class Mission
 					{
 						init="this disableAI ""MOVE"";" \n "this setCaptive true;" \n "this setPos ([[],0,-1] call BIS_fnc_findSafePos);";
 						name="u2";
-						description="Player 2";
+						description="1소대장 -----------------------------";
 						isPlayable=1;
 					};
 					id=69;
@@ -402,7 +402,7 @@ class Mission
 					{
 						init="this disableAI ""MOVE""; " \n "this setCaptive true;" \n "this setPos ([[],0,-1] call BIS_fnc_findSafePos);";
 						name="u3";
-						description="Player 3";
+						description="1소대 본부 1";
 						isPlayable=1;
 					};
 					id=70;
@@ -451,7 +451,7 @@ class Mission
 					{
 						init="this disableAI ""MOVE""; " \n "this setCaptive true;" \n "this setPos ([[],0,-1] call BIS_fnc_findSafePos);";
 						name="u4";
-						description="Player 4";
+						description="1소대 본부2";
 						isPlayable=1;
 					};
 					id=71;
@@ -500,7 +500,7 @@ class Mission
 					{
 						init="this disableAI ""MOVE""; " \n "this setCaptive true;" \n "this setPos ([[],0,-1] call BIS_fnc_findSafePos);";
 						name="u5";
-						description="Player 5";
+						description="1소대 본부3";
 						isPlayable=1;
 					};
 					id=72;
@@ -549,7 +549,7 @@ class Mission
 					{
 						init="this disableAI ""MOVE""; " \n "this setCaptive true;" \n "this setPos ([[],0,-1] call BIS_fnc_findSafePos);";
 						name="u6";
-						description="Player 6";
+						description="1소대 1분대장 -----------------------------";
 						isPlayable=1;
 					};
 					id=73;
@@ -598,7 +598,7 @@ class Mission
 					{
 						init="this disableAI ""MOVE""; " \n "this setCaptive true;" \n "this setPos ([[],0,-1] call BIS_fnc_findSafePos);";
 						name="u7";
-						description="Player 7";
+						description="1소대 1분대 본부1";
 						isPlayable=1;
 					};
 					id=74;
@@ -647,7 +647,7 @@ class Mission
 					{
 						init="this disableAI ""MOVE"";" \n "this setCaptive true;" \n "this setPos ([[],0,-1] call BIS_fnc_findSafePos);";
 						name="u8";
-						description="Player 8";
+						description="1소대 1분대 1팀 1 (팀장)";
 						isPlayable=1;
 					};
 					id=75;
@@ -696,7 +696,7 @@ class Mission
 					{
 						init="this disableAI ""MOVE""; " \n "this setCaptive true;" \n "this setPos ([[],0,-1] call BIS_fnc_findSafePos);";
 						name="u9";
-						description="Player 9";
+						description="1소대 1분대 1팀 2";
 						isPlayable=1;
 					};
 					id=77;
@@ -745,7 +745,7 @@ class Mission
 					{
 						init="this disableAI ""MOVE"";" \n "this setCaptive true;" \n "this setPos ([[],0,-1] call BIS_fnc_findSafePos);";
 						name="u10";
-						description="Player 10";
+						description="1소대 1분대 1팀 3";
 						isPlayable=1;
 					};
 					id=78;
@@ -794,7 +794,7 @@ class Mission
 					{
 						init="this disableAI ""MOVE"";" \n "this setCaptive true;" \n "this setPos ([[],0,-1] call BIS_fnc_findSafePos);";
 						name="u11";
-						description="Player 11";
+						description="1소대 1분대 1팀 4";
 						isPlayable=1;
 					};
 					id=79;
@@ -843,7 +843,7 @@ class Mission
 					{
 						init="this disableAI ""MOVE""; " \n "this setCaptive true;" \n "this setPos ([[],0,-1] call BIS_fnc_findSafePos);";
 						name="u12";
-						description="Player 12";
+						description="1소대 1분대 2팀 1 (팀장)";
 						isPlayable=1;
 					};
 					id=80;
@@ -892,7 +892,7 @@ class Mission
 					{
 						init="this disableAI ""MOVE""; " \n "this setCaptive true;" \n "this setPos ([[],0,-1] call BIS_fnc_findSafePos);";
 						name="u13";
-						description="Player 13";
+						description="1소대 1분대 2팀 2";
 						isPlayable=1;
 					};
 					id=81;
@@ -941,7 +941,7 @@ class Mission
 					{
 						init="this disableAI ""MOVE""; " \n "this setCaptive true;" \n "this setPos ([[],0,-1] call BIS_fnc_findSafePos);";
 						name="u14";
-						description="Player 14";
+						description="1소대 1분대 2팀 3";
 						isPlayable=1;
 					};
 					id=82;
@@ -990,7 +990,7 @@ class Mission
 					{
 						init="this disableAI ""MOVE""; " \n "this setCaptive true;" \n "this setPos ([[],0,-1] call BIS_fnc_findSafePos);";
 						name="u15";
-						description="Player 15";
+						description="1소대 1분대 2팀 4";
 						isPlayable=1;
 					};
 					id=83;
@@ -1039,7 +1039,7 @@ class Mission
 					{
 						init="this disableAI ""MOVE""; " \n "this setCaptive true;" \n "this setPos ([[],0,-1] call BIS_fnc_findSafePos);";
 						name="u16";
-						description="Player 16";
+						description="1소대 2분대장 -----------------------------";
 						isPlayable=1;
 					};
 					id=84;
@@ -1088,7 +1088,7 @@ class Mission
 					{
 						init="this disableAI ""MOVE"";" \n "this setCaptive true;" \n "this setPos ([[],0,-1] call BIS_fnc_findSafePos);";
 						name="u17";
-						description="Player 17";
+						description="1소대 2분대 본부1";
 						isPlayable=1;
 					};
 					id=94;
@@ -1137,7 +1137,7 @@ class Mission
 					{
 						init="this disableAI ""MOVE""; " \n "this setCaptive true;" \n "this setPos ([[],0,-1] call BIS_fnc_findSafePos);";
 						name="u18";
-						description="Player 18";
+						description="1소대 2분대 1팀 1 (팀장)";
 						isPlayable=1;
 					};
 					id=95;
@@ -1186,7 +1186,7 @@ class Mission
 					{
 						init="this disableAI ""MOVE""; " \n "this setCaptive true;" \n "this setPos ([[],0,-1] call BIS_fnc_findSafePos);";
 						name="u19";
-						description="Player 19";
+						description="1소대 2분대 1팀 2";
 						isPlayable=1;
 					};
 					id=96;
@@ -1235,7 +1235,7 @@ class Mission
 					{
 						init="this disableAI ""MOVE""; " \n "this setCaptive true;" \n "this setPos ([[],0,-1] call BIS_fnc_findSafePos);";
 						name="u20";
-						description="Player 20";
+						description="1소대 2분대 1팀 3";
 						isPlayable=1;
 					};
 					id=97;
@@ -1284,7 +1284,7 @@ class Mission
 					{
 						init="this disableAI ""MOVE""; " \n "this setCaptive true;" \n "this setPos ([[],0,-1] call BIS_fnc_findSafePos);";
 						name="u21";
-						description="Player 21";
+						description="1소대 2분대 1팀 4";
 						isPlayable=1;
 					};
 					id=98;
@@ -1333,7 +1333,7 @@ class Mission
 					{
 						init="this disableAI ""MOVE""; " \n "this setCaptive true;" \n "this setPos ([[],0,-1] call BIS_fnc_findSafePos);";
 						name="u22";
-						description="Player 22";
+						description="1소대 2분대 2팀 1 (팀장)";
 						isPlayable=1;
 					};
 					id=99;
@@ -1382,7 +1382,7 @@ class Mission
 					{
 						init="this disableAI ""MOVE""; " \n "this setCaptive true;" \n "this setPos ([[],0,-1] call BIS_fnc_findSafePos);";
 						name="u23";
-						description="Player 23";
+						description="1소대 2분대 2팀 2";
 						isPlayable=1;
 					};
 					id=100;
@@ -1431,7 +1431,7 @@ class Mission
 					{
 						init="this disableAI ""MOVE"";" \n "this setCaptive true;" \n "this setPos ([[],0,-1] call BIS_fnc_findSafePos);";
 						name="u24";
-						description="Player 24";
+						description="1소대 2분대 2팀 3";
 						isPlayable=1;
 					};
 					id=102;
@@ -1480,7 +1480,7 @@ class Mission
 					{
 						init="this disableAI ""MOVE""; " \n "this setCaptive true;" \n "this setPos ([[],0,-1] call BIS_fnc_findSafePos);";
 						name="u25";
-						description="Player 25";
+						description="1소대 2분대 2팀 4";
 						isPlayable=1;
 					};
 					id=103;

@@ -51,6 +51,9 @@ _airStartPos = [];
 
 // Random resupply
 _resupplyValid = true;
+// resupply 제거
+_resupplyValid = false;
+
 if (count pHeliClasses > 0) then {
 	if (random 1 > 0.5) then {
 		customSupports pushBackUnique ["SUPPLY"];
