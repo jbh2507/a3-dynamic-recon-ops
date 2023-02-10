@@ -34,7 +34,13 @@ if (count (((AOLocations select _AOIndex) select 2) select 1) > 0) then {
 		_spawnPos = (_x select 0) findEmptyPosition [0,10];
 		if (count _spawnPos > 0) then {
 			if (_roadInfCount < _totalRoadInf) then {
-				_guardGroup = [_spawnPos, enemySide, eInfClassesForWeights, eInfClassWeights, [1,1]] call dro_spawnGroupWeighted;
+				_minAI = 1 * aiMultiplier;
+				_maxAI = 1 * aiMultiplier;
+				if(missionPreset == 3) then {
+					_minAI = round (1.5 * aiMultiplier);
+					_maxAI = round (2 * aiMultiplier);	
+				};	
+				_guardGroup = [_spawnPos, enemySide, eInfClassesForWeights, eInfClassWeights, [_minAI,_maxAI]] call dro_spawnGroupWeighted;
 				waitUntil {!isNil "_guardGroup"};
 				_guardUnit = ((units _guardGroup) select 0);					
 				_guardUnit setFormDir (_x select 1);

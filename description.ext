@@ -172,7 +172,7 @@ class CfgCommunicationMenu
 		icon = "\a3\Ui_f\data\GUI\Cfg\CommunicationMenu\transport_ca.paa";
 		text = "Helicopter transport";
 	};
-	class DRO_Friendly_Engage
+	/*class DRO_Friendly_Engage
 	{
 		cursor = "";
 		enable = "1";
@@ -180,7 +180,7 @@ class CfgCommunicationMenu
 		icon = "\a3\Ui_f\data\GUI\Cfg\CommunicationMenu\attack_ca.paa";
 		text = "Begin Assault";
 		removeAfterExpressionCall = 1;
-	};
+	};*/
 };
 
 class CfgDebriefing

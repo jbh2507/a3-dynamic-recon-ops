@@ -45,6 +45,10 @@ _markerArea setMarkerAlpha 0;
 for "_i" from 0 to 1 do {
 	_minAI = round (2 * aiMultiplier);
 	_maxAI = round (4 * aiMultiplier);
+	if (missionPreset == 3) then {
+		_minAI = round (4 * aiMultiplier);
+		_maxAI = round (5 * aiMultiplier);
+	};
 	_spawnedSquad = [_thisPos, enemySide, eInfClassesForWeights, eInfClassWeights, [_minAI, _maxAI]] call dro_spawnGroupWeighted;				
 	if (!isNil "_spawnedSquad") then {
 		diag_log "spawned";

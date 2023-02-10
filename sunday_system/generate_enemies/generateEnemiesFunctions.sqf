@@ -152,7 +152,13 @@ dro_localBuildingPatrol = {
 					_thisBuilding = _x;
 					diag_log format ["_thisBuilding = %1", _thisBuilding];					
 					_houseOuterPos = [(getPos _thisBuilding), 20, 50, 2, 0, 1, 0] call BIS_fnc_findSafePos;
-					_garrisonGroup = [_houseOuterPos, enemySide, eInfClassesForWeights, eInfClassWeights, [1, 2]] call dro_spawnGroupWeighted;	
+					_minAI = 1 * aiMultiplier;
+					_maxAI = 2 * aiMultiplier;
+					if(missionPreset == 3) then {
+						_minAI = round (2 * aiMultiplier);
+						_maxAI = round (3 * aiMultiplier);	
+					};	
+					_garrisonGroup = [_houseOuterPos, enemySide, eInfClassesForWeights, eInfClassWeights, [_minAI, _maxAI]] call dro_spawnGroupWeighted;	
 					_spawnTime = time;
 					waitUntil {(!isNil "_garrisonGroup") || (time >= (_spawnTime + 5))};					
 					diag_log format ["_garrisonGroup = %1", _garrisonGroup];
@@ -233,7 +239,13 @@ dro_spawnEnemyGarrison = {
 	_leader = nil;
 	{
 		if (_garrisonCounter <= _totalGarrison) then {
-			_group = [_x, enemySide, eInfClassesForWeights, eInfClassWeights, [1,1]] call dro_spawnGroupWeighted;			
+			_minAI = 1 * aiMultiplier;
+			_maxAI = 1 * aiMultiplier;
+			if(missionPreset == 3) then {
+				_minAI = round (2 * aiMultiplier);
+				_maxAI = round (3 * aiMultiplier);	
+			};	
+			_group = [_x, enemySide, eInfClassesForWeights, eInfClassWeights, [_minAI,_maxAI]] call dro_spawnGroupWeighted;			
 			if (!isNil "_group") then {
 				_unit = ((units _group) select 0);
 				_unit setUnitPos "UP";
