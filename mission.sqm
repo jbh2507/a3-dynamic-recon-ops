@@ -304,7 +304,7 @@ class Mission
 					{
 						init="this disableAI ""MOVE""; " \n "this setCaptive true; " \n "this setPos ([[],0,-1] call BIS_fnc_findSafePos);";
 						name="u1";
-						description="미션 메이커11";
+						description="미션 메이커";
 						isPlayer=1;
 					};
 					id=68;
