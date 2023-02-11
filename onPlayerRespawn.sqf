@@ -36,6 +36,7 @@ if ((["SOGPFRadioSupportTrait", 0] call BIS_fnc_getParamValue) == 1) then {
 	player setUnitTrait ["vn_artillery", true, true];
 };
 
+/*
 if (!isNil "staminaDisabled") then {
 	if ((staminaDisabled) > 0) then {
 		player setAnimSpeedCoef 1;
@@ -46,7 +47,7 @@ if (!isNil "staminaDisabled") then {
 		};
 	};
 };
-
+*/
 //fix for sometimes strange respawn circumstances
 if ((configfile >> "CfgPatches" >> "ace_medical") call BIS_fnc_getCfgIsClass) then {	
 	[player] call ACE_medical_treatment_fnc_fullHealLocal;

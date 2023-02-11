@@ -256,6 +256,7 @@ if ((["Stamina", 0] call BIS_fnc_getParamValue) > 0) then {
 	};
 };
 
+
 // Get player faction
 playersFactionName = (configFile >> "CfgFactionClasses" >> playersFaction >> "displayName") call BIS_fnc_GetCfgData;
 _playerSideNum = (configFile >> "CfgFactionClasses" >> playersFaction >> "side") call BIS_fnc_GetCfgData;

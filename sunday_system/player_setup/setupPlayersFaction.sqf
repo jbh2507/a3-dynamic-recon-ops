@@ -992,12 +992,13 @@ _backdropList = _backdropList - (units (grpNetId call BIS_fnc_groupFromNetId));
 		deleteVehicle _x;
 	};		
 } forEach _backdropList;
-
+/*
 if (reviveDisabled < 3) then {
 	diag_log "DRO: Revive enabled";
 	_reviveHandle = [(grpNetId call BIS_fnc_groupFromNetId)] execVM "sunday_revive\initRevive.sqf";
 	waitUntil {scriptDone _reviveHandle};
 };
+*/
 
 if (stealthEnabled == 1) then {
 	[] execVM "sunday_system\stealth.sqf";	
