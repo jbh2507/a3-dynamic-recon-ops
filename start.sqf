@@ -2,7 +2,7 @@ diag_log "DRO: Main DRO script started";
 
 #include "sunday_system\fnc_lib\sundayFunctions.sqf";
 #include "sunday_system\fnc_lib\droFunctions.sqf";
-#include "sunday_revive\reviveFunctions.sqf";
+//#include "sunday_revive\reviveFunctions.sqf";
 #include "sunday_system\generate_enemies\generateEnemiesFunctions.sqf";
 
 [] execVM "sunday_system\fnc_lib\objectsLibrary.sqf";
