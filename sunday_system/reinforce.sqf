@@ -49,10 +49,10 @@ for "_i" from 1 to _numReinforcements do {
 	_weights = [];
 	{
 		switch (_x) do {
-			case "INFANTRY": {_weights pushBack 0.2};			
-			case "CARTRANSPORT": {_weights pushBack 0.8};			
-			case "CAR": {_weights pushBack 0.1};			
-			case "HELI": {_weights pushBack 0.7};
+			case "INFANTRY": {_weights pushBack 0.3};			
+			case "CARTRANSPORT": {_weights pushBack 0.4};			
+			case "CAR": {_weights pushBack 0.2};			
+			case "HELI": {_weights pushBack 0.1};
 		};
 	} forEach _styles;	
 	
