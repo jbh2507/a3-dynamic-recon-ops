@@ -49,9 +49,6 @@ randomSeed=13200576;
 class ScenarioData
 {
 	author="NOYA";
-	overViewPicture="images\recon_image.jpg";
-	overViewPictureLocked="images\recon_image.jpg";
-	loadScreen="images\recon_image.jpg";
 	briefing=0;
 	aIKills=1;
 	respawnDelay=10;
