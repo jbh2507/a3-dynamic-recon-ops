@@ -329,18 +329,50 @@ _cfgVeh = configFile >> "CfgVehicles";
 						};
 					} forEach ["artillery", "aa", "tank", "apc", "helicopter", "plane", "boat", "drone"];					
 				};				
-				_pVars = [pMortarClasses, pStaticClasses, pStaticClasses, pAmmoClasses];
-				_eVars = [eMortarClasses, eStaticClasses, eStaticClasses, eAmmoClasses];
+				_pVars = [pMortarClasses, pStaticClasses, pAmmoClasses];
+				_eVars = [eMortarClasses, eStaticClasses, eAmmoClasses];
 				{						
-					if (_cfgName isKindOf 'StaticMortar') exitWith {
+					if (_cfgName isKindOf 'StaticMortar') then {
 						if (_isPlayerFaction) then {
-							(_pVars select _forEachIndex) pushBackUnique _cfgName;
+							(_pVars select 0) pushBackUnique _cfgName;
 						};
 						if (_isEnemyFaction) then {
-							(_eVars select _forEachIndex) pushBackUnique _cfgName;
+							(_eVars select 0) pushBackUnique _cfgName;
 						};
 					};
-				} forEach ["StaticMortar", "StaticMGWeapon", "StaticGrenadeLauncher", "ReammoBox_F"];			
+					if (_cfgName isKindOf 'StaticMGWeapon') then {
+						if (_isPlayerFaction) then {
+							(_pVars select 1) pushBackUnique _cfgName;
+						};
+						if (_isEnemyFaction) then {
+							(_eVars select 1) pushBackUnique _cfgName;
+						};
+					};
+					if (_cfgName isKindOf 'StaticGrenadeLauncher') then {
+						if (_isPlayerFaction) then {
+							(_pVars select 1) pushBackUnique _cfgName;
+						};
+						if (_isEnemyFaction) then {
+							(_eVars select 1) pushBackUnique _cfgName;
+						};
+					};
+					if (_cfgName isKindOf 'StaticATWeapon') then {
+						if (_isPlayerFaction) then {
+							(_pVars select 1) pushBackUnique _cfgName;
+						};
+						if (_isEnemyFaction) then {
+							(_eVars select 1) pushBackUnique _cfgName;
+						};
+					};
+					if (_cfgName isKindOf 'StaticCannon') then {
+						if (_isPlayerFaction) then {
+							(_pVars select 1) pushBackUnique _cfgName;
+						};
+						if (_isEnemyFaction) then {
+							(_eVars select 1) pushBackUnique _cfgName;
+						};
+					};
+				} forEach ["StaticMortar", "StaticMGWeapon", "StaticGrenadeLauncher", "StaticATWeapon", "StaticCannon", "ReammoBox_F"];			
 			};
 		};
 	};
@@ -360,6 +392,14 @@ if (count pMortarClasses == 0) then {
 };
 if (count eMortarClasses == 0) then {
 	eMortarClasses = ["O_Mortar_01_F"];
+};
+
+// Ensure there are statics
+if (count pStaticClasses == 0) then {
+	pStaticClasses = ["B_G_HMG_02_high_F"];
+};
+if (count eStaticClasses == 0) then {
+	eStaticClasses = ["O_G_HMG_02_high_F"];
 };
 
 // Check to see if there are a lot of unarmed units, in which case, allow them to be valid

@@ -101,7 +101,13 @@ for "_k" from 1 to 6 step 1 do {
 // Populate guardposts
 {
 	_buildingPosition = (_x buildingPos 1);
-	_group = [_buildingPosition, enemySide, eInfClassesForWeights, eInfClassWeights, [1,1]] call dro_spawnGroupWeighted;
+	_minAI = 1 * aiMultiplier;
+	_maxAI = 1 * aiMultiplier;
+	if(missionPreset == 3) then {
+		_minAI = round (1 * aiMultiplier);
+		_maxAI = round (1.5 * aiMultiplier);	
+	};	
+	_group = [_buildingPosition, enemySide, eInfClassesForWeights, eInfClassWeights, [_minAI,_maxAI]] call dro_spawnGroupWeighted;
 	if (!isNil "_group") then {
 		_unit = ((units _group) select 0);
 		_unit setFormDir ((getDir _x)+180);
@@ -119,7 +125,11 @@ for "_infIndex" from 1 to _numBarrierInf step 1 do {
 			_infBarrierSpawnPos = getPos(_guardTowers select _select);	
 			_spawnedSquad = nil;
 			_minAI = round (2 * aiMultiplier);
-			_maxAI = round (3 * aiMultiplier);				
+			_maxAI = round (3 * aiMultiplier);		
+			if(missionPreset == 3) then {
+				_minAI = round (3 * aiMultiplier);
+				_maxAI = round (3.5 * aiMultiplier);	
+			};	
 			_spawnedSquad = [_infBarrierSpawnPos, enemySide, eInfClassesForWeights, eInfClassWeights, [_minAI, _maxAI]] call dro_spawnGroupWeighted;				
 			if (!isNil "_spawnedSquad") then {
 				[_spawnedSquad, _infBarrierSpawnPos, 50] call BIS_fnc_taskPatrol;
@@ -137,6 +147,10 @@ for "_infIndex" from 1 to _numBarrierInf step 1 do {
 		_spawnedSquad = nil;
 		_minAI = round (2 * aiMultiplier);
 		_maxAI = round (4 * aiMultiplier);
+		if(missionPreset == 3) then {
+			_minAI = round (3 * aiMultiplier);
+			_maxAI = round (3.5 * aiMultiplier);	
+		};	
 		_spawnedSquad = [_infBarrierSpawnPos, enemySide, eInfClassesForWeights, eInfClassWeights, [_minAI, _maxAI]] call dro_spawnGroupWeighted;	
 		if (!isNil "_spawnedSquad") then {				
 			_wp0 = _spawnedSquad addWaypoint[_infBarrierSpawnPos, 10];

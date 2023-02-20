@@ -21,6 +21,15 @@ respawnTemplates[] = {"MenuPosition", "Tickets", "Spectator", "EndMission"};
 
 //cba_settings_hasSettingsFile = 1;
 
+//--------------------------------------------------------------
+//------------------------AIS INJURY----------------------------
+//--------------------------------------------------------------
+class CfgFunctions {
+	#include "AIS\cfgFunctions.hpp"
+};
+#include "AIS\Effects\BarDlg.hpp"
+//--------------------------------------------------------------
+
 class Params
 {
 	class Respawn
@@ -42,7 +51,7 @@ class Params
 		title = "Stamina";
 		values[] = {0,1};
 		texts[] = {"Enabled", "Disabled"};
-		default = 0;
+		default = 1;
 	};
 	/*
 	class SOGPFRadioSupport
@@ -172,7 +181,7 @@ class CfgCommunicationMenu
 		icon = "\a3\Ui_f\data\GUI\Cfg\CommunicationMenu\transport_ca.paa";
 		text = "Helicopter transport";
 	};
-	class DRO_Friendly_Engage
+	/*class DRO_Friendly_Engage
 	{
 		cursor = "";
 		enable = "1";
@@ -180,7 +189,7 @@ class CfgCommunicationMenu
 		icon = "\a3\Ui_f\data\GUI\Cfg\CommunicationMenu\attack_ca.paa";
 		text = "Begin Assault";
 		removeAfterExpressionCall = 1;
-	};
+	};*/
 };
 
 class CfgDebriefing

@@ -32,7 +32,14 @@ if (count (((AOLocations select _AOIndex) select 2) select 5) > 0) then {
 			_rotation = _rotation + 90;
 		};		
 		{
-			_guardGroup = [(_x select 0), enemySide, eInfClassesForWeights, eInfClassWeights, [1,1]] call dro_spawnGroupWeighted;
+			
+			_minAI = 1 * aiMultiplier;
+			_maxAI = 1 * aiMultiplier;
+			if(missionPreset == 3) then {
+				_minAI = round (1 * aiMultiplier);
+				_maxAI = round (1.5 * aiMultiplier);	
+			};	
+			_guardGroup = [(_x select 0), enemySide, eInfClassesForWeights, eInfClassWeights, [_minAI,_maxAI]] call dro_spawnGroupWeighted;
 			waitUntil {!isNil "_guardGroup"};
 			_guardUnit = ((units _guardGroup) select 0);					
 			_guardUnit setFormDir (_x select 1);
@@ -52,7 +59,13 @@ if (count (((AOLocations select _AOIndex) select 2) select 5) > 0) then {
 				for "_n" from 1 to _numBunkerGuards do {
 					_dir = random 360;
 					_spawnPos = [_bunkerPos, 4, _dir] call dro_extendPos;
-					_bunkerGroup = [_spawnPos, enemySide, eInfClassesForWeights, eInfClassWeights, [1,1]] call dro_spawnGroupWeighted;												
+					_minAI = 1 * aiMultiplier;
+					_maxAI = 1 * aiMultiplier;
+					if(missionPreset == 3) then {
+						_minAI = round (1 * aiMultiplier);
+						_maxAI = round (1.5 * aiMultiplier);	
+					};	
+					_bunkerGroup = [_spawnPos, enemySide, eInfClassesForWeights, eInfClassWeights, [_minAI,_maxAI]] call dro_spawnGroupWeighted;												
 					if (!isNil "_bunkerGroup") then {
 						_unit = ((units _bunkerGroup) select 0);
 						_unit setFormDir _dir;
@@ -77,7 +90,13 @@ if (count (((AOLocations select _AOIndex) select 2) select 5) > 0) then {
 				for "_n" from 1 to _numBunkerGuards do {
 					_dir = random 360;						
 					_spawnPos = _bunkerPos findEmptyPosition [0,20];
-					_bunkerGroup = [_spawnPos, enemySide, eInfClassesForWeights, eInfClassWeights, [1,1]] call dro_spawnGroupWeighted;						
+					_minAI = 1 * aiMultiplier;
+					_maxAI = 1 * aiMultiplier;
+					if(missionPreset == 3) then {
+						_minAI = round (1 * aiMultiplier);
+						_maxAI = round (1.5 * aiMultiplier);	
+					};	
+					_bunkerGroup = [_spawnPos, enemySide, eInfClassesForWeights, eInfClassWeights, [_minAI,_maxAI]] call dro_spawnGroupWeighted;						
 					if (!isNil "_bunkerGroup") then {
 						_unit = ((units _bunkerGroup) select 0);
 						_unit setFormDir _dir;
@@ -95,7 +114,13 @@ if (count (((AOLocations select _AOIndex) select 2) select 5) > 0) then {
 					};
 				};					
 				_spawnPos = [(getPos _bunker select 0), (getPos _bunker select 1), (getPos _bunker select 2)];
-				_bunkerGroup = [_spawnPos, enemySide, eInfClassesForWeights, eInfClassWeights, [1,1]] call dro_spawnGroupWeighted;					
+				_minAI = 1 * aiMultiplier;
+				_maxAI = 1 * aiMultiplier;
+				if(missionPreset == 3) then {
+					_minAI = round (1 * aiMultiplier);
+					_maxAI = round (1.5 * aiMultiplier);	
+				};	
+				_bunkerGroup = [_spawnPos, enemySide, eInfClassesForWeights, eInfClassWeights, [_minAI,_maxAI]] call dro_spawnGroupWeighted;					
 				if (!isNil "_bunkerGroup") then {
 					_unit = ((units _bunkerGroup) select 0);
 					_unit setPosATL [(getPos _bunker select 0), (getPos _bunker select 1), (getPos _bunker select 2)+3.5];
@@ -133,7 +158,7 @@ if (count (((AOLocations select _AOIndex) select 2) select 5) > 0) then {
 		_markerBunker setMarkerType "hd_warning";
 		_markerBunker setMarkerText "Bunker";			
 		_markerBunker setMarkerColor markerColorEnemy;
-		_markerBunker setMarkerAlpha 0;
+		_markerBunker setMarkerAlpha 0.6;
 		enemyIntelMarkers pushBack _markerBunker;			
 		
 		travelPosPOIMil pushBack _bunkerPos;

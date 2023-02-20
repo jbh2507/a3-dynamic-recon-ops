@@ -294,12 +294,14 @@ rev_reviveUnit = {
 		};
 	};
 
+	/*
 	if !("FirstAidKit" in (items _medic) OR "Medikit" in (items _medic)) then {
 		diag_log format ["Revive: %1 is out of medical supplies", _medic];
 		_string = selectRandom ["I'm out of medical supplies.", "That was my last first aid kit.", "Going to need more medical supplies."];
 		[_medic, _string] remoteExec ["groupChat", 0];
 		
 	};
+	*/
 
 	_unit setVariable ["rev_downed", false, true];
 	_unit setVariable ["rev_beingAssisted", false, true];
@@ -321,17 +323,28 @@ rev_reviveActionAdd = {
 		"\A3\Ui_f\data\IGUI\Cfg\Revive\overlayIcons\r100_ca.paa",
 		"((_this distance _target) < 3) && (alive _target) && (_target getVariable ['rev_downed', false]) && !(_target getVariable ['rev_dragged', false])",
 		"((_caller distance _target) < 3) && (alive _target) && (_target getVariable ['rev_downed', false]) && !(_target getVariable ['rev_dragged', false])",
-		{(_this select 0) setVariable ["rev_beingRevived", true, true]},
+		{
+			params ["_target", "_caller", "_actionId", "_arguments"]; 
+			(_this select 0) setVariable ["rev_beingRevived", true, true];
+			_caller switchMove "UnconsciousReviveMedic_A";
+		},
 		{},
 		{			
+			params ["_target", "_caller", "_actionId", "_arguments"]; 
 			[(_this select 0), (_this select 1)] remoteExec ["rev_reviveUnit", (_this select 1)];
+			_caller switchMove "";
 		},
-		{(_this select 0) setVariable ["rev_beingRevived", false, true]},
+		{
+			params ["_target", "_caller", "_actionId", "_arguments"]; 
+			(_this select 0) setVariable ["rev_beingRevived", false, true];
+			_caller switchMove "";
+		},
 		[],
 		reviveTime,
 		1000,
 		false,
-		false
+		false,
+		true
 	] call BIS_fnc_holdActionAdd;
 	diag_log format ["Revive: Revive action ID %1 added for unit %1", _id, (_this select 0)];
 	[(format ["Revive: Revive action ID %1 added for unit %1", _id, (_this select 0)])] remoteExec ["diag_log", 2];

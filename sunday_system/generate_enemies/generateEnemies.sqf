@@ -79,7 +79,7 @@ if (missionPreset == 3) then {
 	// Combined Arms tanks
 	// Vehicle patrol
 	if (count eAPCClasses > 0) then {
-		_numVeh = round ([2,3] call BIS_fnc_randomInt);
+		_numVeh = round ([3,5] call BIS_fnc_randomInt);
 		for "_x" from 1 to _numVeh do {
 			_indexes = [[0, 1]] call dro_checkAOIndexes;
 			if (count _indexes > 0) then {			
@@ -133,6 +133,9 @@ if (missionPreset == 3) then {
 if (count eCarClasses > 0) then {
 	if (random 1 > 0.4) then {
 		_numVeh = round (([1,2] call BIS_fnc_randomInt) * _sizeMod);
+		if (missionPreset == 3) then {
+			_numVeh = round (([3,5] call BIS_fnc_randomInt) * _sizeMod);
+		};
 		for "_x" from 1 to _numVeh do {
 			_indexes = [[0, 1]] call dro_checkAOIndexes;
 			if (count _indexes > 0) then {			
@@ -162,6 +165,9 @@ if (count eCarClasses > 0) then {
 	switch (_x) do {
 		case "ROADBLOCK": {						
 			_numRoadblocks = round ((([2,3] call BIS_fnc_randomInt) * aiMultiplier) * _sizeMod);
+			if (missionPreset == 3) then {
+			_numRoadblocks = round ((([3,4] call BIS_fnc_randomInt) * aiMultiplier) * _sizeMod);
+			};
 			diag_log format ["DRO: AO %1, Generate enemies - _numRoadblocks = %2", _AOIndex, _numRoadblocks];
 			if (_numRoadblocks > 0) then {
 				for "_x" from 1 to _numRoadblocks step 1 do {
@@ -171,6 +177,9 @@ if (count eCarClasses > 0) then {
 		};
 		case "BUNKER": {			
 			_numBunkers = round ((([1,2] call BIS_fnc_randomInt) * aiMultiplier) * _sizeMod);
+			if (missionPreset == 3) then {
+			_numBunkers = round ((([2,3] call BIS_fnc_randomInt) * aiMultiplier) * _sizeMod);
+			};
 			diag_log format ["DRO: AO %1, Generate enemies - _numBunkers = %2", _AOIndex, _numBunkers];
 			if (_numBunkers > 0) then {
 				for "_x" from 1 to _numBunkers step 1 do {	
@@ -188,8 +197,8 @@ if (count eCarClasses > 0) then {
 					if (count (((AOLocations select _AOIndex) select 2) select 9) > 0) then {_campPositions pushBack 9};
 					_campPos = [(((AOLocations select _AOIndex) select 2) select (selectRandom _campPositions))] call sun_selectRemove;
 					[_campPos] execVM "sunday_system\generate_ao\generateCampsite.sqf";
-					_minAI = (round ((2 * aiMultiplier) / (0.4 * _numCamps)) min 3);
-					_maxAI = (round ((3 * aiMultiplier) / (0.4 * _numCamps)) min 5);		
+					_minAI = 1 * aiMultiplier;
+					_maxAI = 1.5 * aiMultiplier;		
 					_spawnedSquad = nil;
 					_spawnedSquad = [_campPos, enemySide, eInfClassesForWeights, eInfClassWeights, [_minAI,_maxAI]] call dro_spawnGroupWeighted;			
 					waitUntil {!isNil "_spawnedSquad"};
@@ -208,6 +217,9 @@ if (count eCarClasses > 0) then {
 		};		
 		case "EMPLACEMENT": {
 			_numEmplacements = round ((([1,2] call BIS_fnc_randomInt) * aiMultiplier) * _sizeMod);
+			if (missionPreset == 3) then {
+			_numEmplacements = round ((([2,3] call BIS_fnc_randomInt) * aiMultiplier) * _sizeMod);
+			};
 			diag_log format ["DRO: AO %1, Generate enemies - _numEmplacements = %2", _AOIndex, _numEmplacements];
 			if (_numEmplacements > 0) then {
 				for "_x" from 1 to _numEmplacements step 1 do {	

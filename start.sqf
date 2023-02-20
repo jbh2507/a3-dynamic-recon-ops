@@ -2,7 +2,7 @@ diag_log "DRO: Main DRO script started";
 
 #include "sunday_system\fnc_lib\sundayFunctions.sqf";
 #include "sunday_system\fnc_lib\droFunctions.sqf";
-#include "sunday_revive\reviveFunctions.sqf";
+//#include "sunday_revive\reviveFunctions.sqf";
 #include "sunday_system\generate_enemies\generateEnemiesFunctions.sqf";
 
 [] execVM "sunday_system\fnc_lib\objectsLibrary.sqf";
@@ -255,6 +255,7 @@ if ((["Stamina", 0] call BIS_fnc_getParamValue) > 0) then {
 		};
 	};
 };
+
 
 // Get player faction
 playersFactionName = (configFile >> "CfgFactionClasses" >> playersFaction >> "displayName") call BIS_fnc_GetCfgData;
@@ -1110,14 +1111,14 @@ missionNamespace setVariable ["dro_introCamReady", 1, true];
 
 // Generate chances
 //_friendlyChance = if (count AOLocations > 1) then {random 1} else {0};
-_friendlyChance = if (missionPreset == 3) then {1} else {0};
+_friendlyChance = if (missionPreset == 3) then {0} else {0};
 //_friendlyChance = 1; // DEBUG
 /*
 _ambFriendlyChance = if (count AOLocations > 1 || stealthEnabled == 2) then {
 	if (_friendlyChance > 0.75) then {random 1.2} else {random 1};
 } else {0};
 */
-_ambFriendlyChance = if (missionPreset == 3) then {1} else {0};
+_ambFriendlyChance = if (missionPreset == 3) then {0} else {0};
 //if (missionPreset == 3) then {_ambFriendlyChance = 1};
 
 if (_friendlyChance > 0.8 || _ambFriendlyChance > 0.8) then {

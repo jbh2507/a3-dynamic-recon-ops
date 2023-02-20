@@ -51,6 +51,9 @@ _airStartPos = [];
 
 // Random resupply
 _resupplyValid = true;
+// resupply 제거
+_resupplyValid = false;
+
 if (count pHeliClasses > 0) then {
 	if (random 1 > 0.5) then {
 		customSupports pushBackUnique ["SUPPLY"];
@@ -965,9 +968,9 @@ if (isMultiplayer) then {
 } forEach (units (grpNetId call BIS_fnc_groupFromNetId));
 
 // Add friendly unit trigger to leader
-if (missionPreset == 3) then {
-	[(leader (grpNetId call BIS_fnc_groupFromNetId)), "DRO_Friendly_Engage"] remoteExec ["BIS_fnc_addCommMenuItem", (leader (grpNetId call BIS_fnc_groupFromNetId))];
-};
+//if (missionPreset == 3) then {
+//	[(leader (grpNetId call BIS_fnc_groupFromNetId)), "DRO_Friendly_Engage"] remoteExec ["BIS_fnc_addCommMenuItem", (leader (grpNetId call BIS_fnc_groupFromNetId))];
+//};
 
 // Set player callsign and icon
 _iconSide = switch (playersSide) do {
@@ -989,12 +992,13 @@ _backdropList = _backdropList - (units (grpNetId call BIS_fnc_groupFromNetId));
 		deleteVehicle _x;
 	};		
 } forEach _backdropList;
-
+/*
 if (reviveDisabled < 3) then {
 	diag_log "DRO: Revive enabled";
 	_reviveHandle = [(grpNetId call BIS_fnc_groupFromNetId)] execVM "sunday_revive\initRevive.sqf";
 	waitUntil {scriptDone _reviveHandle};
 };
+*/
 
 if (stealthEnabled == 1) then {
 	[] execVM "sunday_system\stealth.sqf";	

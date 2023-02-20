@@ -6,7 +6,7 @@ waitUntil {!isNull player};
 
 #include "sunday_system\fnc_lib\sundayFunctions.sqf";
 #include "sunday_system\fnc_lib\droFunctions.sqf";
-#include "sunday_revive\reviveFunctions.sqf";
+//#include "sunday_revive\reviveFunctions.sqf";
 #include "sunday_system\fnc_lib\menuFunctions.sqf";
 
 addWeaponItemEverywhere = compileFinal " _this select 0 addPrimaryWeaponItem (_this select 1); ";

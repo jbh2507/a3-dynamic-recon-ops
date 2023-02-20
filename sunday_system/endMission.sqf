@@ -28,7 +28,7 @@ _failCount = 0;
 diag_log format ["DRO: At end of mission _successCount is %1", _successCount];
 diag_log format ["DRO: At end of mission _failCount is %1", _failCount];
 diag_log format ["DRO: At end of mission civDeathCounter is %1", civDeathCounter];
-
+/*
 if (civDeathCounter > 1) then {
 	if (civDeathCounter == 2) then {
 		if (isMultiplayer) then {
@@ -66,3 +66,4 @@ if (civDeathCounter > 1) then {
 		};
 	};	
 };
+*/

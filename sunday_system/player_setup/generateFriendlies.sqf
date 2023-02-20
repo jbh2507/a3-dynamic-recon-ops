@@ -347,7 +347,9 @@ if (_friendlyChance > 0.75) then {
 		};
 	};
 
-	if !(_rendezvousPos isEqualTo [0,0,0]) then {
+	//if !(_rendezvousPos isEqualTo [0,0,0]) then {
+	// remove rendezvous marker
+	if (false) then {
 		_thisCallsign = [callsigns] call sun_selectRemove;
 		// Create friendly squad
 		_minAI = (round (4 * aiMultiplier) min 6);
