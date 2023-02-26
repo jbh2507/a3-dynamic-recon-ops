@@ -253,7 +253,7 @@ switch (_extractStyle) do {
 			"		
 				((({alive _x && side _x == enemySide} count thisList) < round (({alive _x && side _x == playersSide} count thisList)*0.25))) || 
 				(({alive _x && side _x == enemySide} count thisList) <= 5) ||
-				time > ((thisTrigger getVariable 'startTime') + 240)
+				time > ((thisTrigger getVariable 'startTime') + 300)
 			",
 			"
 				[] execVM 'sunday_system\endMission.sqf';
