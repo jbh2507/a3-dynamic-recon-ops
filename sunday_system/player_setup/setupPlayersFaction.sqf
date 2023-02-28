@@ -632,6 +632,7 @@ switch (_groundStyleSelect) do {
 			} forEach (units (grpNetId call BIS_fnc_groupFromNetId));
 
 			["AmmoboxInit", [_box, true]] spawn BIS_fnc_arsenal;
+			_box addAction["<t color='#FF0000'>ACE 무기</t>", {[_box, player, true] call ace_arsenal_fnc_openBox},[_box]];
 			[_box, true] call ACE_arsenal_fnc_initBox;
 			[_box] spawn {
 				waitUntil {(missionNameSpace getVariable ["playersReady", 0]) == 1};
