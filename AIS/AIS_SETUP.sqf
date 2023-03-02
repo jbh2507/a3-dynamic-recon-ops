@@ -17,8 +17,8 @@ AIS_MEDEVAC_STATIONS		=	[];				// Add one or more objects and a radius to activa
 
 AIS_DAMAGE_TOLLERANCE_FACTOR = 	1; 				// A higher value means more damage tolerance. 1 is Vanilla. 0.8 mean all damage will reduce to 80% of Vanilla.
 AIS_BLEEDOUT_TIME 			= 	600; 			// Basic life time in seconds until the unit bleed out and die.. The real life time depends on the real damage of the unit. (can be less or more time from the basic value)
-AIS_REVIVETIME 				= 	40;				// Basic revive time in seconds. The real revive time depends on the real damage of the unit. (can be less or more time from the basic value)
-AIS_STABILIZETIME 			= 	20;				// Basic stabilize time in seconds to stop the bleeding of a unconscious unit. The real revive time depends on the real damage of the unit. (can be less or more time from the basic value)
+AIS_REVIVETIME 				= 	60;				// Basic revive time in seconds. The real revive time depends on the real damage of the unit. (can be less or more time from the basic value)
+AIS_STABILIZETIME 			= 	30;				// Basic stabilize time in seconds to stop the bleeding of a unconscious unit. The real revive time depends on the real damage of the unit. (can be less or more time from the basic value)
 AIS_REVIVE_HEAL 			= 	false;			// If set to true the injured unit get completely healed after the revive. (casual gameplay without a medic)
 AIS_TOGGLE_RADIO 			= 	true; 			// If set to true, unconscious players cannot use his TFAR or ACRE radios.
 AIS_NO_CHAT 				= 	true; 			// If set to true, a injured player cannot use text chat during he is uncoscious.
