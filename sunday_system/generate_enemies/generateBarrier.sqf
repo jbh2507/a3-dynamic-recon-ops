@@ -147,10 +147,6 @@ for "_infIndex" from 1 to _numBarrierInf step 1 do {
 		_spawnedSquad = nil;
 		_minAI = round (2 * aiMultiplier);
 		_maxAI = round (4 * aiMultiplier);
-		if(missionPreset == 3) then {
-			_minAI = round (3 * aiMultiplier);
-			_maxAI = round (3.5 * aiMultiplier);	
-		};	
 		_spawnedSquad = [_infBarrierSpawnPos, enemySide, eInfClassesForWeights, eInfClassWeights, [_minAI, _maxAI]] call dro_spawnGroupWeighted;	
 		if (!isNil "_spawnedSquad") then {				
 			_wp0 = _spawnedSquad addWaypoint[_infBarrierSpawnPos, 10];

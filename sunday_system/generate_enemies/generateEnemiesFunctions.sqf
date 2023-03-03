@@ -156,7 +156,7 @@ dro_localBuildingPatrol = {
 					_maxAI = 2 * aiMultiplier;
 					if(missionPreset == 3) then {
 						_minAI = round (2 * aiMultiplier);
-						_maxAI = round (3 * aiMultiplier);	
+						_maxAI = round (2.5 * aiMultiplier);	
 					};	
 					_garrisonGroup = [_houseOuterPos, enemySide, eInfClassesForWeights, eInfClassWeights, [_minAI, _maxAI]] call dro_spawnGroupWeighted;	
 					_spawnTime = time;
@@ -242,8 +242,8 @@ dro_spawnEnemyGarrison = {
 			_minAI = 1 * aiMultiplier;
 			_maxAI = 1 * aiMultiplier;
 			if(missionPreset == 3) then {
-				_minAI = round (2 * aiMultiplier);
-				_maxAI = round (3 * aiMultiplier);	
+				_minAI = round (1.5 * aiMultiplier);
+				_maxAI = round (2 * aiMultiplier);	
 			};	
 			_group = [_x, enemySide, eInfClassesForWeights, eInfClassWeights, [_minAI,_maxAI]] call dro_spawnGroupWeighted;			
 			if (!isNil "_group") then {

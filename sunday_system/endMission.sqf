@@ -6,11 +6,11 @@ if (['taskStealth'] call BIS_fnc_taskExists) then {
 };
 ['taskExtract', 'SUCCEEDED', true] spawn BIS_fnc_taskSetState;
 
-sleep 5;
+/*sleep 5;
 [["", "BLACK OUT", 5]] remoteExec ["cutText", 0];
 [5, 0] remoteExec ["fadeSound", 0];
 [5, 0] remoteExec ["fadeSpeech", 0];
-sleep 5;
+sleep 5;*/
 
 diag_log 'DRO: Ending MP mission';
 _successCount = 0;

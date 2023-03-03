@@ -1125,6 +1125,45 @@ if (_friendlyChance > 0.8 || _ambFriendlyChance > 0.8) then {
 	[_friendlyChance, _ambFriendlyChance] execVM "sunday_system\player_setup\generateFriendlies.sqf";	
 };
 
+// if conbined ops, set hold task
+if (missionPreset == 3) then {
+	_holdAOs = [];
+	
+	_taskAOs = [];
+	diag_log format ["DRO: objData = %1", objData];
+	{
+		_taskPos = (_x select 5);//_x call BIS_fnc_taskDestination;
+		diag_log format ["DRO: _taskPos = %1", _taskPos];
+		_nearAOs = [AOLocations, [_taskPos], {(_x select 0) distance _input0}, "ASCEND"] call BIS_fnc_sortBy;
+		if (((_nearAOs select 0) select 4) == 0) then {
+			_taskAOs pushBack (_nearAOs select 0);
+		};
+	} forEach objData;
+	diag_log format ["DRO: _taskAOs = %1", _taskAOs];
+	
+	if (count _taskAOs > 0) then {
+		_taskAOs = _taskAOs call BIS_fnc_consolidateArray;
+		diag_log format ["DRO: _taskAOs consolidate = %1", _taskAOs];
+		_taskAOs = [_taskAOs, [], {(_x select 1)}, "DESCEND"] call BIS_fnc_sortBy;
+		diag_log format ["DRO: _taskAOs consolidate sort = %1", _taskAOs];
+		{
+			_holdAOs pushBack (_x select 0);
+		} forEach _taskAOs;
+		diag_log format ["DRO: _holdAOs = %1", _holdAOs];		
+	} else {
+		{
+			if ((_x select 4) == 0) then {
+				_holdAOs pushBack _x;
+			};
+		} forEach AOLocations;	
+	};
+	
+	if (count _holdAOs > 0) then {		
+		holdAO = (_holdAOs select 0);
+		_AONameAmbient = text (holdAO select 5);
+	};
+};
+
 
 // *****
 // WAIT FOR LOBBY COMPLETION

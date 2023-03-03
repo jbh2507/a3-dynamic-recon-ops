@@ -1177,6 +1177,8 @@ dro_setSkillAction = {
 sun_addArsenal = {
 	(_this select 0) addAction ["Arsenal", "['Open', true] call BIS_fnc_arsenal", nil, 6];
 	[(_this select 0), true] call ACE_arsenal_fnc_initBox;
+	(_this select 0)  addAction["<t color='#FF0000'>ACE 무기</t>", {[(_this select 0) , player, true] call ace_arsenal_fnc_openBox},[(_this select 0) ]];
+
 };
 
 sun_pasteLoadoutAdd = {
