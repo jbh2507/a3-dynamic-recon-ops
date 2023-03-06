@@ -1,8 +1,6 @@
-sleep 10;
-
 while{true} do {
 
-	sleep 1;
+	sleep 10;
 	radioMarkerPos = 0;
 	
 	{
@@ -13,6 +11,7 @@ while{true} do {
 	
 	_headlessClients = entities "HeadlessClient_F";
 	_humanPlayers = allPlayers - _headlessClients;
+	ny_freqs = [];
 
 	{
 		_isLeader = (_x == leader  _x);
@@ -31,17 +30,19 @@ while{true} do {
 			};
 			
 			//분대 무전 표시
-			
-			radioMarkerPos = radioMarkerPos + 10;
-			_markerRadioId = format ["SystemMarker_NY_radio_%1",groupId(group _x)];
 			_freq = (call TFAR_fnc_ActiveSwRadio) call TFAR_fnc_getSwFrequency;
 			_markerRadioText = format ["%1 - 단파[%2 Hz]",groupId(group _x), _freq];
-			_markerRadio = createMarker [_markerRadioId, [10,radioMarkerPos,0]]; 
-			_markerRadio setMarkerShape "ICON"; 
-			_markerRadio setMarkerType "mil_dot";
-			_markerRadio setMarkerText _markerRadioText;
-			_markerRadio setMarkerColor "ColorBlack";
-					
+			ny_freqs pushBack _markerRadioText;
 		};
 	} forEach _humanPlayers;
+
+	{
+		radioMarkerPos = radioMarkerPos + 100;
+		_markerRadioId = format ["SystemMarker_NY_radio_%1",groupId(group _x)];
+		_markerRadio = createMarker [_markerRadioId, [10,radioMarkerPos,0]]; 
+		_markerRadio setMarkerShape "ICON"; 
+		_markerRadio setMarkerType "mil_dot";
+		_markerRadio setMarkerText _x;
+		_markerRadio setMarkerColor "ColorBlack";
+	} forEach (ny_freqs arrayIntersect ny_freqs);
 };
