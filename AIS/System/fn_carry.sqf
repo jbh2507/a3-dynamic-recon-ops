@@ -16,7 +16,7 @@ private _target = _unit getVariable ["ais_DragDrop_Torso", objNull];
 
 // switch to primary weapon, exit if no primary weapon is present (animation cant be played without a primary :(    )
 if (primaryWeapon _unit isEqualTo "") exitWith {
-	["This action is only with a primary Weapon possible."] call AIS_Core_fnc_dynamicText;
+	["주무장을 들고 있을때만 업을 수 있습니다."] call AIS_Core_fnc_dynamicText;
 };
 
 if (primaryWeapon _unit != "") then {
@@ -25,10 +25,11 @@ if (primaryWeapon _unit != "") then {
 };
 
 if (_unit call AIS_System_fnc_checkLauncher) exitWith {
-	["You are not able to carry anyone else while carrying a launcher on your back."] call AIS_Core_fnc_dynamicText;
+	["발사장비를 메고 있을때는 업을 수 없습니다."] call AIS_Core_fnc_dynamicText;
 };
 _unit setVariable ["ais_CarryDrop_Torso", true];
 
+["W를 눌러 계속 업기"] call AIS_Core_fnc_dynamicText;
 
 [_target,_unit] spawn {
 
@@ -41,7 +42,7 @@ _unit setVariable ["ais_CarryDrop_Torso", true];
 	_target setPos _pos;
 	[_target, "grabCarried"] remoteExec ["playActionNow", 0, false];
 	disableUserInput true;
-	sleep 2.5;
+	sleep 0.5;
 	if (!isPlayer _target) then {_target disableAI "ANIM"};
 	[_unit, "grabCarry"] remoteExec ["playActionNow", 0, false];
 	_unit playActionNow "grabCarry";
@@ -50,7 +51,7 @@ _unit setVariable ["ais_CarryDrop_Torso", true];
 	disableUserInput false;
 	
 	_timenow = time;
-	waitUntil {!alive _target || {!alive _unit} || {_unit getVariable ["ais_unconscious", false]} || {time > _timenow + 16}};
+	waitUntil {!alive _target || {!alive _unit} || {_unit getVariable ["ais_unconscious", false]} || {time > _timenow + 12}};
 	_state = _unit getVariable ["ais_unconscious", false];
 	if (!alive _target || {!alive _unit} || {_state}) then {
 		if (alive _target) then {
