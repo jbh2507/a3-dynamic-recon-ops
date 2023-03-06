@@ -15,4 +15,6 @@
 // However, if you specify "BLUE1", "NAVYBLUE10" will also be ignored
 
 [true,30,false,true,30,3,true,[]] execVM "WerthlesHeadless.sqf";
+
+//분대 위치 마커
 [] execVM "noyaTracker.sqf";
