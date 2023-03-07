@@ -31,18 +31,23 @@ while{true} do {
 			
 			//분대 무전 표시
 			_freq = (call TFAR_fnc_ActiveSwRadio) call TFAR_fnc_getSwFrequency;
-			_markerRadioText = format ["%1 - 단파[%2 Hz]",groupId(group _x), _freq];
-			ny_freqs pushBack _markerRadioText;
+			if(_freq != "any") then {
+				_markerRadioText = format ["%1 - 단파[%2 Hz]",groupId(group _x), _freq];
+				ny_freqs pushBack _markerRadioText;
+			};
 		};
 	} forEach _humanPlayers;
 
+	ny_freqs = ny_freqs arrayIntersect ny_freqs;
+	ny_freqs sort false;
+
 	{
 		radioMarkerPos = radioMarkerPos + 100;
-		_markerRadioId = format ["SystemMarker_NY_radio_%1",groupId(group _x)];
+		_markerRadioId = format ["SystemMarker_NY_radio_%1",_x];
 		_markerRadio = createMarker [_markerRadioId, [10,radioMarkerPos,0]]; 
 		_markerRadio setMarkerShape "ICON"; 
 		_markerRadio setMarkerType "mil_dot";
 		_markerRadio setMarkerText _x;
 		_markerRadio setMarkerColor "ColorBlack";
-	} forEach (ny_freqs arrayIntersect ny_freqs);
+	} forEach ny_freqs;
 };
