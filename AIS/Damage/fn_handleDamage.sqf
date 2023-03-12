@@ -175,8 +175,8 @@ if (_set_unconscious && {!(_unit getVariable ["ais_unconscious", false])}) then 
 			[_source, -1] remoteExec ["addScore", 2];
 		};
 		if (isPlayer _unit) then {
-			_text = format ["%1 was seriously wounded by %2", name _unit, name _source];
-			[_text] remoteExec ["systemChat", 0];
+			//_text = format ["%1 was seriously wounded by %2", name _unit, name _source];
+			//[_text] remoteExec ["systemChat", 0];
 		};
 	};
 };
