@@ -297,7 +297,9 @@ switch (_groundStyleSelect) do {
 				};
 			};
 		} forEach _boundaries;
+		_chosenBoundary = 2;
 		switch (_chosenBoundary) do {
+			/*
 			case 0: {
 				// Camp
 				[_randomStartingLocation] call fnc_generateCampsite;
@@ -361,6 +363,7 @@ switch (_groundStyleSelect) do {
 				[_spawnedSquad1, _randomStartingLocation, 30] call BIS_fnc_taskPatrol;
 
 			};
+			*/
 			case 2: {
 				// Big FOB
 				_ambGrp = createGroup playersSide;
@@ -393,17 +396,18 @@ switch (_groundStyleSelect) do {
 								_class = _x;
 							};
 						} forEach pInfClasses;
-						_ambWorker = _ambGrp createUnit [_class, _randomStartingLocation, [], 0, "NONE"];
+						/*_ambWorker = _ambGrp createUnit [_class, _randomStartingLocation, [], 0, "NONE"];
 
 						[_ambWorker, (selectRandom ["REPAIR_VEH_KNEEL", "REPAIR_VEH_STAND"]), (selectRandom ["LIGHT", "NONE"])] remoteExec ["BIS_fnc_ambientAnim", 0, true];
 						[_objVehWork, _ambWorker, [-2,(selectRandom [-1.5, 1.5]), 0], (getDir _objVehWork)] call BIS_fnc_relPosObject;
 						_dirTo = ((getDir _objVehWork) + 90);
 						_ambWorker setDir _dirTo;
+						*/
 						//[_ambWorker, "InBaseMoves_repairVehicleKnl"] remoteExec ["switchMove", 0, true];
 
 					};
 				} forEach _spawnedObjects;
-
+				/*
 				_base = createVehicle ["Land_CanvasCover_01_F", _randomStartingLocation, [], 0, "CAN_COLLIDE"];
 				_obj1 = objNull;
 				_obj3 = createVehicle ["Land_CampingTable_white_F", [0,0,100], [], 0, "CAN_COLLIDE"];
@@ -421,7 +425,7 @@ switch (_groundStyleSelect) do {
 					_box2 = createVehicle ["Land_Pallet_MilBoxes_F", [0,0,100], [], 0, "CAN_COLLIDE"];
 					[_base, _box2, [2.5,1.7,0], 350] call BIS_fnc_relPosObject;
 					// Setup actions post player spawn
-					/*
+					
 					[_obj1] spawn {
 						params ["_obj1"];
 						waitUntil {(missionNamespace getVariable ["playersReady", 0]) == 1};
@@ -441,7 +445,7 @@ switch (_groundStyleSelect) do {
 						[_obj1, "BASE_RADIO"] spawn sun_loopSounds;
 
 					};
-					*/
+					
 				} else {
 					_obj1 = createVehicle ["Land_MapBoard_F", [0,0,100], [], 0, "CAN_COLLIDE"];
 
@@ -473,6 +477,7 @@ switch (_groundStyleSelect) do {
 					_box2 = createVehicle ["Land_PaperBox_open_full_F", [0,0,100], [], 0, "CAN_COLLIDE"];
 					[_base, _box2, [2.5,2,0], 350] call BIS_fnc_relPosObject;
 				};
+				*/
 				_mapBoard = switch (worldName) do {
 					case "Altis": {"MapBoard_altis_F"};
 					case "Stratis": {"MapBoard_stratis_F"};
@@ -492,7 +497,7 @@ switch (_groundStyleSelect) do {
 				};
 
 				// Create officers
-				if (count pOfficerClasses > 0) then {
+				/*if (count pOfficerClasses > 0) then {
 					if (random 1 > 0.3) then {
 						_dir = if (typeOf _obj1 == "Land_MapBoard_F") then {((getDir _obj1) + 220)} else {((getDir _obj1) + 40)};
 						_officer = _ambGrp createUnit [(selectRandom pOfficerClasses), (_obj1 getPos [2, _dir]), [], 0, "CAN_COLLIDE"];
@@ -505,8 +510,8 @@ switch (_groundStyleSelect) do {
 						_officer2 setDir (getDir _obj3);
 						_officer2 setPos [((getPos _officer2) select 0), ((getPos _officer2) select 1), 0.8];
 					};
-				};
-
+				};*/
+				/*
 				for "_i" from 0 to ([2, 4] call BIS_fnc_randomInt) do {
 					_thisPos = [_randomStartingLocation, 10, 18, 1, 0, 1, 0, [], [[0,0,0],[0,0,0]]] call BIS_fnc_findSafePos;
 					if !(_thisPos isEqualTo [0,0,0]) then {
@@ -526,6 +531,8 @@ switch (_groundStyleSelect) do {
 						};
 					};
 				};
+				*/
+				/*
 				_spawnPos1 = _randomStartingLocation findEmptyPosition [10, 50];
 				if (count _spawnPos1 > 0) then {
 					_spawnedSquad1 = [_spawnPos1, playersSide, pInfClassesForWeights, pInfClassWeights, [2, 4]] call dro_spawnGroupWeighted;
@@ -539,9 +546,10 @@ switch (_groundStyleSelect) do {
 					} forEach (units _spawnedSquad1);
 					[_spawnedSquad1, _randomStartingLocation, 30] call BIS_fnc_taskPatrol;
 				};
+				*/
 			};
 		};
-
+		
 		// Create 'real' player units at the spawn position and switch players
 		_playersPos = [_randomStartingLocation, 20, (random 360)] call dro_extendPos;
 		//[_playersPos] remoteExec ["sun_newUnits", s1];
@@ -658,6 +666,7 @@ switch (_groundStyleSelect) do {
 			respawnFOB = [missionNamespace, "campMkr", _campName] call BIS_fnc_addRespawnPosition;
 		};
 	};
+	/*
 	case "SEA": {
 		insertType = "SEA";
 		_shipClass = selectRandom _shipClasses;
@@ -750,6 +759,7 @@ switch (_groundStyleSelect) do {
 			} forEach _vehiclePool;
 		};
 	};
+	*/
 };
 
 // Blacklist marker
@@ -806,6 +816,7 @@ if (typeName _waterReturn == "ARRAY") then {
 		};
 	} forEach AOLocations;
 };
+/*
 if (count _waterPositions > 0) then {
 	diag_log "DRO: Found water for extra boat spawn";
 	_closestWaterPositions = [_waterPositions, [_randomStartingLocation], {_input0 distance _x}, "ASCEND"] call BIS_fnc_sortBy;
@@ -860,6 +871,7 @@ if (count _waterPositions > 0) then {
 	_markerBoat setMarkerColor markerColorPlayers;						
 	_markerBoat setMarkerText "Sea transport";	
 };		
+*/
 
 missionNameSpace setVariable ["startPos", _randomStartingLocation, true];
 /*
