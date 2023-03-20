@@ -59,3 +59,6 @@ player setCaptive false;
 // Initialize group management for player
 if (isServer) then {["Initialize"] call BIS_fnc_dynamicGroups;}; 
 if (hasInterface) then {["InitializePlayer", [player]] call BIS_fnc_dynamicGroups;};
+
+//ROS Hit Reaction Script
+player removeAllEventHandlers "HIT";

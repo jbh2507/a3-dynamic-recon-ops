@@ -18,3 +18,7 @@
 
 //분대 위치 마커
 [] execVM "noyaTracker.sqf";
+
+//ROS Hit Reaction Script
+//https://steamcommunity.com/sharedfiles/filedetails/?id=2898217171
+[] execVM "ROS_hitreaction\scripts\ROS_HitReaction.sqf";

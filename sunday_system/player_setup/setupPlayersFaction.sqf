@@ -645,10 +645,10 @@ switch (_groundStyleSelect) do {
 				params ["_target", "_caller", "_actionId", "_arguments"];
 				[_target, _caller] call ace_arsenal_fnc_openBox;
 			}];
-			[_box, true] call ACE_arsenal_fnc_initBox;
+			//[_box, true] call ACE_arsenal_fnc_initBox;
 			[_box] spawn {
 				waitUntil {(missionNameSpace getVariable ["playersReady", 0]) == 1};
-				[(_this select 0)] call sun_supplyBox;
+				//[(_this select 0)] call sun_supplyBox;
 			};
 		};
 		// FOB marker
