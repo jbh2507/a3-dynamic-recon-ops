@@ -307,7 +307,7 @@ if (player == topUnit) then {
     	[]
     ] call BIS_fnc_addStackedEventHandler;
 
-	hint "Select Insert position or just close map and use random insert position";
+	hint "투입지점을 지도에서 클릭하세요 / 지도를 닫으면 랜덤으로 투입지점이 선택됩니다.";
 
 	waitUntil {!visibleMap};
     ["mapStartSelect", "onMapSingleClick"] call BIS_fnc_removeStackedEventHandler;

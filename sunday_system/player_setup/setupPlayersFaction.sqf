@@ -617,39 +617,15 @@ switch (_groundStyleSelect) do {
 			diag_log "DRO: unable to create respawn marker for vehicle";
 		};
 
-		_boxLocation = _randomStartingLocation findEmptyPosition [0, 20, "B_supplyCrate_F"];
+		_boxLocation = _randomStartingLocation findEmptyPosition [0, 20, "Box_NATO_Equip_F"];
 		if (count _boxLocation > 0) then {
-			_box = createVehicle ["B_supplyCrate_F", _boxLocation, [], 0, "NONE"];
-			_box = [_box] call sun_checkVehicleSpawn;
-			clearWeaponCargoGlobal _box;
-			clearMagazineCargoGlobal _box;
-			clearItemCargoGlobal _box;
-
-			_box addMagazineCargoGlobal ["SatchelCharge_Remote_Mag", 2];
-			_box addMagazineCargoGlobal ["DemoCharge_Remote_Mag", 4];
-			_box addItemCargoGlobal ["Medikit", 1];
-			_box addItemCargoGlobal ["FirstAidKit", 10];
-			_box addItemCargoGlobal ["Toolkit", 1];
-			_box addItemCargoGlobal ["MineDetector", 1];
-
-			{
-				_magazines = magazinesAmmoFull _x;
-				{
-					_box addMagazineCargoGlobal [(_x select 0), 2];
-				} forEach _magazines;
-			} forEach (units (grpNetId call BIS_fnc_groupFromNetId));
-
-			//["AmmoboxInit", [_box, true]] spawn BIS_fnc_arsenal;
+			_box = createVehicle ["Box_NATO_Equip_F", _boxLocation, [], 0, "NONE"];
+			[_box, true, true] call ace_arsenal_fnc_initBox;
 			_box addAction ["<t color='#FF8000'>ACE 무기</t>",
 			{
 				params ["_target", "_caller", "_actionId", "_arguments"];
-				[_target, _caller] call ace_arsenal_fnc_openBox;
+				[_target, _caller, true] call ace_arsenal_fnc_openBox;
 			}];
-			[_box, true] call ACE_arsenal_fnc_initBox;
-			[_box] spawn {
-				waitUntil {(missionNameSpace getVariable ["playersReady", 0]) == 1};
-				[(_this select 0)] call sun_supplyBox;
-			};
 		};
 		// FOB marker
 		deleteMarker "campMkr";
