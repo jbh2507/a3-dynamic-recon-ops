@@ -620,6 +620,7 @@ switch (_groundStyleSelect) do {
 		_boxLocation = _randomStartingLocation findEmptyPosition [0, 20, "Box_NATO_Equip_F"];
 		if (count _boxLocation > 0) then {
 			_box = createVehicle ["Box_NATO_Equip_F", _boxLocation, [], 0, "NONE"];
+			["AmmoboxInit", [_box, true]] spawn BIS_fnc_arsenal;
 			[_box, true, true] call ace_arsenal_fnc_initBox;
 			_box addAction ["<t color='#FF8000'>ACE 무기</t>",
 			{
