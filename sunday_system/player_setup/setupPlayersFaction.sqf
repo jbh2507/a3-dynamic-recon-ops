@@ -617,16 +617,9 @@ switch (_groundStyleSelect) do {
 			diag_log "DRO: unable to create respawn marker for vehicle";
 		};
 
-		_boxLocation = _randomStartingLocation findEmptyPosition [0, 20, "Box_NATO_Equip_F"];
+		_boxLocation = _randomStartingLocation findEmptyPosition [0, 20, "NOYA_BOX"];
 		if (count _boxLocation > 0) then {
-			_box = createVehicle ["Box_NATO_Equip_F", _boxLocation, [], 0, "NONE"];
-			["AmmoboxInit", [_box, true]] spawn BIS_fnc_arsenal;
-			[_box, true, true] call ace_arsenal_fnc_initBox;
-			_box addAction ["<t color='#FF8000'>ACE 무기</t>",
-			{
-				params ["_target", "_caller", "_actionId", "_arguments"];
-				[_target, _caller, true] call ace_arsenal_fnc_openBox;
-			}];
+			_box = createVehicle ["NOYA_BOX", _boxLocation, [], 0, "NONE"];
 		};
 		// FOB marker
 		deleteMarker "campMkr";
