@@ -12,6 +12,7 @@ while{true} do {
 	_headlessClients = entities "HeadlessClient_F";
 	_humanPlayers = allPlayers - _headlessClients;
 	ny_freqs = [];
+	ny_gears = [];
 
 	{
 		_isLeader = (_x == leader  _x);
@@ -30,11 +31,22 @@ while{true} do {
 			};
 			
 			//분대 무전 표시
-			_freq = (call TFAR_fnc_ActiveSwRadio) call TFAR_fnc_getSwFrequency;
+			_freq = (assignedItems leader select { _x find "TFAR_anprc" == 0}) call TFAR_fnc_getSwFrequency;
 			if(_freq != "any") then {
 				_markerRadioText = format ["%1 - 단파[%2 Hz]",groupId(group _x), _freq];
 				ny_freqs pushBack _markerRadioText;
 			};
+
+			//분대 장비 표시
+			_uniform = uniform player;  
+			_helmet = headgear player;  
+			_vest = vest player;  
+			_weapon = primaryWeapon player; 
+
+			ny_gears pushBack ( format ["유니폼 : %1" 	, getText (configFile >> "CfgWeapons" >> _uniform >> "displayName")]);  
+			ny_gears pushBack ( format ["조끼 : %1" 	, getText (configFile >> "CfgWeapons" >> _vest >> 	 "displayName")]);  
+			ny_gears pushBack ( format ["헬멧 : %1" 	, getText (configFile >> "CfgWeapons" >> _helmet >>  "displayName")]);  
+			ny_gears pushBack ( format ["주무기 : %1" 	, getText (configFile >> "CfgWeapons" >> _weapon >>  "displayName")]);  
 		};
 	} forEach _humanPlayers;
 
@@ -50,4 +62,15 @@ while{true} do {
 		_markerRadio setMarkerText _x;
 		_markerRadio setMarkerColor "ColorBlack";
 	} forEach ny_freqs;
+
+	radioMarkerPos = 0;
+	{
+		radioMarkerPos = radioMarkerPos + 100;
+		_markerRadioId = format ["SystemMarker_NY_radio_%1",_x];
+		_markerRadio = createMarker [_markerRadioId, [110,radioMarkerPos,0]]; 
+		_markerRadio setMarkerShape "ICON"; 
+		_markerRadio setMarkerType "mil_dot";
+		_markerRadio setMarkerText _x;
+		_markerRadio setMarkerColor "ColorBlack";
+	} forEach ny_gears;
 };
