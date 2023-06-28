@@ -31,7 +31,7 @@ while{true} do {
 			};
 			
 			//분대 무전 표시
-			_freq = (assignedItems leader select { _x find "TFAR_anprc" == 0}) call TFAR_fnc_getSwFrequency;
+			_freq = (assignedItems _x select { _x find "TFAR_anprc" == 0}) call TFAR_fnc_getSwFrequency;
 			if(_freq != "any") then {
 				_markerRadioText = format ["%1 - 단파[%2 Hz]",groupId(group _x), _freq];
 				ny_freqs pushBack _markerRadioText;
@@ -54,7 +54,7 @@ while{true} do {
 	ny_freqs sort false;
 
 	{
-		radioMarkerPos = radioMarkerPos + 100;
+		radioMarkerPos = radioMarkerPos + 1000;
 		_markerRadioId = format ["SystemMarker_NY_radio_%1",_x];
 		_markerRadio = createMarker [_markerRadioId, [10,radioMarkerPos,0]]; 
 		_markerRadio setMarkerShape "ICON"; 
@@ -65,9 +65,9 @@ while{true} do {
 
 	radioMarkerPos = 0;
 	{
-		radioMarkerPos = radioMarkerPos + 100;
+		radioMarkerPos = radioMarkerPos + 1000;
 		_markerRadioId = format ["SystemMarker_NY_radio_%1",_x];
-		_markerRadio = createMarker [_markerRadioId, [110,radioMarkerPos,0]]; 
+		_markerRadio = createMarker [_markerRadioId, [10000,radioMarkerPos,0]]; 
 		_markerRadio setMarkerShape "ICON"; 
 		_markerRadio setMarkerType "mil_dot";
 		_markerRadio setMarkerText _x;
