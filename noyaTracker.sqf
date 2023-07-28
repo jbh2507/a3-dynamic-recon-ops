@@ -50,13 +50,30 @@ while{true} do {
 		};
 	} forEach _humanPlayers;
 
+	// ai 그룹 위치추적
+	{
+		if(!isNull (leader _x) && isPlayer (leader _x) == false && (leader _x) != vehicle (leader _x)) then {
+			_markerId = format ["SystemMarker_NY_squad_%1",groupId(_x)];
+			_marker = createMarker [_markerId, (leader _x)]; 
+			_marker setMarkerShape "ICON"; 
+			_marker setMarkerType "b_inf";
+			_marker setMarkerText groupId(_x);
+			
+			if(side _x == west) then {
+				_marker setMarkerColor "colorBLUFOR";
+			} else {
+				_marker setMarkerColor "colorOPFOR";
+			};
+		}
+	} forEach (groups (side (_humanPlayers select 0)));
+
 	ny_freqs = ny_freqs arrayIntersect ny_freqs;
 	ny_freqs sort false;
 
 	{
-		radioMarkerPos = radioMarkerPos + 1000;
+		radioMarkerPos = radioMarkerPos + 100;
 		_markerRadioId = format ["SystemMarker_NY_radio_%1",_x];
-		_markerRadio = createMarker [_markerRadioId, [10,radioMarkerPos,0]]; 
+		_markerRadio = createMarker [_markerRadioId, [radioMarkerPos,0,0]]; 
 		_markerRadio setMarkerShape "ICON"; 
 		_markerRadio setMarkerType "mil_dot";
 		_markerRadio setMarkerText _x;
@@ -65,9 +82,9 @@ while{true} do {
 
 	radioMarkerPos = 0;
 	{
-		radioMarkerPos = radioMarkerPos + 1000;
+		radioMarkerPos = radioMarkerPos + 300;
 		_markerRadioId = format ["SystemMarker_NY_radio_%1",_x];
-		_markerRadio = createMarker [_markerRadioId, [10000,radioMarkerPos,0]]; 
+		_markerRadio = createMarker [_markerRadioId, [radioMarkerPos,-100,0]]; 
 		_markerRadio setMarkerShape "ICON"; 
 		_markerRadio setMarkerType "mil_dot";
 		_markerRadio setMarkerText _x;
